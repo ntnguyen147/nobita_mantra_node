@@ -6,16 +6,17 @@ nobita_mantra_node
 - Step 1: 
 SSH to Server and run: source <(curl -s https://itrocket.net/api/testnet/mantra/autoinstall/)
 ```
-Follow the script's instructions
+- Follow the script's instructions
 
-Step 2:
-- Create Wallet: 
-# to create a new wallet, use the following command. don’t forget to save the mnemonic
-- mantrachaind keys add $WALLET
-
-# to restore exexuting wallet, use the following command
+Step 2: Create Wallet: 
+- to create a new wallet, use the following command. don’t forget to save the mnemonic
+```
+mantrachaind keys add $WALLET
+```
+- to restore exexuting wallet, use the following command
+```
 mantrachaind keys add $WALLET --recover
-
+```
 # save wallet and validator address
 WALLET_ADDRESS=$(mantrachaind keys show $WALLET -a)
 VALOPER_ADDRESS=$(mantrachaind keys show $WALLET --bech val -a)
