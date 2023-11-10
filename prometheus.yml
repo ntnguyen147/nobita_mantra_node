@@ -1,3 +1,4 @@
+```
 cat > $HOME/prometheus.yml << EOF
 # my global config
 global:
@@ -35,3 +36,4 @@ scrape_configs:
     # Node address port 26660
       - targets: ["127.0.0.1:26660"]
 EOF 
+```
