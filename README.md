@@ -17,21 +17,24 @@ mantrachaind keys add $WALLET
 ```
 mantrachaind keys add $WALLET --recover
 ```
-# save wallet and validator address
+- Save wallet and validator address
+```
 WALLET_ADDRESS=$(mantrachaind keys show $WALLET -a)
 VALOPER_ADDRESS=$(mantrachaind keys show $WALLET --bech val -a)
 echo "export WALLET_ADDRESS="$WALLET_ADDRESS >> $HOME/.bash_profile
 echo "export VALOPER_ADDRESS="$VALOPER_ADDRESS >> $HOME/.bash_profile
 source $HOME/.bash_profile
-
-# check sync status, once your node is fully synced, the output from above will print "false"
+```
+- Check sync status, once your node is fully synced, the output from above will print "false
+```
 mantrachaind status 2>&1 | jq .SyncInfo
-
-# before creating a validator, you need to fund your wallet and check balance
+```
+- before creating a validator, you need to fund your wallet and check balance
+```
 mantrachaind query bank balances $WALLET_ADDRESS
-
-Step 3: Create Validator
-
+```
+- Step 3: Create Validator
+```
 mantrachaind tx staking create-validator \
 --amount 1100000uaum \
 --from $WALLET \
@@ -46,20 +49,23 @@ mantrachaind tx staking create-validator \
 --chain-id mantrachain-testnet-1 \
 --gas auto --gas-adjustment 1.5 --fees 50uaum \
 -y
+```
+- note: Change Moniker and details, amount 
 
-# note: Change Moniker and details, amount 
+- Step 4: After you successfully create a validator, visit https://explorer.testnet.mantrachain.io/mantrachain/validators to check node
 
-Step 4: After you successfully create a validator, visit https://explorer.testnet.mantrachain.io/mantrachain/validators to check node
-
-# Staking Command
-- mantrachaind tx staking delegate $(mantrachaind keys show ntnguyen --bech val -a) 1070000uaum --from ntnguyen --chain-id mantrachain-testnet-1 --node="http://127.0.0.1:21657/" --gas=auto --gas-adjustment 1.5 --fees 100uaum -y
-- 
+- Staking Command
+```
+mantrachaind tx staking delegate $(mantrachaind keys show ntnguyen --bech val -a) 1070000uaum --from ntnguyen --chain-id mantrachain-testnet-1 --node="http://127.0.0.1:21657/" --gas=auto --gas-adjustment 1.5 --fees 100uaum -y
+```
 **--> You need to change your information**
-# Send Token Command
+
+- Send Token Command
+```
 mantrachaind tx bank send To_address form_address 200000uaum --gas auto --gas-adjustment 1.5 --fees 50uaum -y
 
 EXP: mantrachaind tx bank send mantra1drpnmuqvj2u7n3lf60gfdz0lck5nj6mjjltf6y mantra1fy5z907mjs4dtwlgzukwctjahe932eakd5ak78 200000uaum --gas auto --gas-adjustment 1.5 --fees 50uaum -y
-
+```
 
 
 
