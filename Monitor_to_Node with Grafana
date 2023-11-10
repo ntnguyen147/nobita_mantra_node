@@ -1,5 +1,0 @@
-# Install Prometheus and Grafana
-
-sudo apt-get install -y prometheus prometheus-node-exporter
-
-# Create prometheus.yml file
