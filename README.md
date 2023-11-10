@@ -2,12 +2,12 @@
 nobita_mantra_node
 
 # Deploy Mantra Node with Script
+```
+- Step 1: 
+SSH to Server and run: source <(curl -s https://itrocket.net/api/testnet/mantra/autoinstall/)
+```
+Follow the script's instructions
 
-Step 1: 
-
-- SSH to Server and run: source <(curl -s https://itrocket.net/api/testnet/mantra/autoinstall/)	
-- Follow the script's instructions
-- 
 Step 2:
 - Create Wallet: 
 # to create a new wallet, use the following command. don’t forget to save the mnemonic
